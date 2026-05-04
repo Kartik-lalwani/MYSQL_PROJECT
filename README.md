@@ -8,8 +8,7 @@ This project analyzes a dataset of Spotify tracks to uncover trends in song popu
 ## 🛠️ Tools Used
 * **Data Cleaning & Normalization:** Microsoft Excel
 * **Database Management & Querying:** MySQL
-  
-##🗄️ Database Schema
+## 🗄️ Database Schema
   <img width="388" height="412" alt="schema" src="https://github.com/user-attachments/assets/7a973031-e3f6-4a30-ad61-100198769391" />
 
 
