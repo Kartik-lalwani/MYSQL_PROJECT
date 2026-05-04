@@ -1,0 +1,52 @@
+/*What is the average Spotify popularity score for each different 'Media Type'?*/
+
+select avg (popularity) as avg_pop , t2.media_type_id  from spotifypj as t1
+inner join tracks as t2 on t1.id=t2.track_id
+group by t2.media_type_id;
+
+/* Can we identify pairs of tracks that belong to the exact same album?/*
+
+ select a1.name as track1 , a2.name as track2 ,a1.album from spotifypj as a1 
+ join spotifypj as a2 on a1.album = a2.album;
+
+/* Which specific albums contain tracks that are more popular than the overall average popularity of the entire dataset?/*
+
+ select album,popularity from spotifypj
+ where popularity>(select avg(popularity) from spotifypj) ;
+
+/* Which musical genres have an average track popularity score strictly greater than 10, and what is that average score?*/
+
+select genre , avg(popularity) as average_pop
+from spotifypj
+group by genre 
+having avg(popularity)>10;
+
+/*Which artists have more than one album/track listed in our dataset, and exactly how many do they have?*/
+
+select artists, count(album) as counter  from spotifypj 
+ group by artists
+ having count(album)>1;
+
+/*What are the albums specifically within the 'acoustic' and 'afrobeat' genres, ranked in descending order from highest to lowest popularity?*/
+
+ select album, popularity from spotifypj
+ where genre in('acoustic','afrobeat')
+ order by popularity desc;
+
+/*What are all the unique musical genres present in the dataset?*/
+
+select distinct genre from spotifypj;  
+
+/* What are the artist names and albums for all tracks that involve 'Drake'?*/
+
+select artists, album from spotifypj
+ where artists like"%drake%";
+
+
+
+
+
+
+
+
+ 
